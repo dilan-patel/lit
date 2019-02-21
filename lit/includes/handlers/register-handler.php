@@ -37,8 +37,13 @@ if(isset($_POST['rgButton'])) {
     $password = sanitizePassword($_POST['rgPassword']);
     $confirmPassword = sanitizePassword($_POST['rgConfirmPassword']);
 
-    $account->register($username, $firstName, $lastName, $email, $confirmEmail, $password, $confirmPassword);
-    
+    $regSuccess = $account->register($username, $firstName, $lastName, $email, $confirmEmail, $password, $confirmPassword);
+
+    if($regSuccess == true) {
+        //Takes user to index page if registration successful.
+        header("Location: index.php");
+    }
+
 }
 
 ?>
