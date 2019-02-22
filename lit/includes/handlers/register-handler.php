@@ -40,8 +40,8 @@ if(isset($_POST['rgButton'])) {
     $regSuccess = $account->register($username, $firstName, $lastName, $email, $confirmEmail, $password, $confirmPassword);
 
     if($regSuccess == true) {
-        //Takes user to index page if registration successful.
-        header("Location: index.php");
+        $_SESSION['userLoggedIn'] = $username; //Sets session to username the user used to register.
+        header("Location: index.php"); //Takes user to index page if registration successful.
     }
 
 }
