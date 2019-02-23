@@ -117,7 +117,7 @@ function getInput($userInput) {
                     </p>
                     <button type="submit" name="rgButton">SIGN UP</button>
                     <div class="switchForm">
-                        <span id="hideRegisterForm">Already have an account? Log in here.</span>
+                        <span id="hideRegisterForm">Already have an account? Click here.</span>
                     </div>
                 </form>
             </div>
@@ -127,8 +127,10 @@ function getInput($userInput) {
                 <ul>
                     <li>Listen to amazing new songs</li>
                     <li>Find great new artists</li>
-                    <li>Curate your very own playlist tailored just for you</li>
+                    <li>Curate a personalised playlist made just for you</li>
                 </ul>
+            </div>
+            <div id="bodyImage">
             </div>
         </div>
     </div>
