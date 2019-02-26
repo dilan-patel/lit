@@ -122,16 +122,16 @@ function getInput($userInput) {
                 </form>
             </div>
             <div id="bodyText">
-                <h1>Lit🔥</h1>
+                <h1>LIT🔥</h1>
                 <h2>Discover music you'll fall in love with</h2>
                 <ul>
                     <li>Listen to amazing new songs</li>
                     <li>Find great new artists</li>
                     <li>Curate a personalised playlist made just for you</li>
+                    </div>
+                        <div id="bodyImage">
+                    </div>
                 </ul>
-            </div>
-            <div id="bodyImage">
-            </div>
         </div>
     </div>
 </body>
