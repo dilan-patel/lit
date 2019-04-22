@@ -13,7 +13,7 @@
         }
 
         public function register($un, $fn, $ln, $em, $cem, $pw, $cpw) {
-            //Called from outside this class (register.php) so needs to be public
+            //Called from outside this class (landing.php) so needs to be public
             $this->validateUsername($un);
             $this->validateFirstName($fn);
             $this->validateLastName($ln);
@@ -51,7 +51,7 @@
         private function insertData($un, $fn, $ln, $em, $pw) {
             $encryption = md5($pw); //Encrypts password in MD5 encryption method.
             $displayPicture = "assets/images/display-picture/profile.png"; //Default user profile picture.
-            $date = date("Y-m-d"); //Date format
+            $date = date('Y-m-d H:i:s'); //Date format
             //Insert user registration data into users table.
             $insert = mysqli_query($this->connection, "INSERT INTO users VALUES('', '$un', '$fn', '$ln', '$em', '$encryption', '$date', '$displayPicture')");
             return $insert;

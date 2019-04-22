@@ -1,7 +1,23 @@
 * {
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    cursor: default;
 }
+
+*, *:focus { outline: none; }
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-2px, -1px) rotate(1deg); }
+    30% { transform: translate(1px, 1px) rotate(0deg); }
+    40% { transform: translate(0px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 1px) rotate(-1deg); }
+    60% { transform: translate(-2px, 2px) rotate(0deg); }
+    70% { transform: translate(1px, 2px) rotate(-1deg); }
+    80% { transform: translate(0px, 1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(2px, 1px) rotate(-1deg); }
+  }
 
 html, body {
     height: 100%;
@@ -10,12 +26,86 @@ html, body {
     font-family: 'IBM Plex Sans', sans-serif;
 }
 
+body {
+    min-width: 720px;
+    background: white;
+    color: rgb(0, 0, 0);
+}
+
+button:focus {
+    outline:0;
+}
+
+h1.pageHeading {
+    background: -webkit-linear-gradient(-45deg, rgb(161, 43, 212), rgb(233, 54, 102)  90%);
+    color: white;
+    text-align: center;
+    padding: 32px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 2.0em;
+    letter-spacing: 1;
+    margin-top: 0;
+}
+
+#mainContainer {
+    margin-left: 200px;
+    padding-bottom: 90px;
+    width: calc(100% - 200px);
+}
+
+#mainContent {
+    /*padding: 0 20px;*/
+}
+
+.gridViewItem {
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+    vertical-align: middle;
+    padding: 20px;
+    width: 30%;
+    max-width: 310px;
+    min-width: 150px;
+}
+
+.gridViewItem span {
+   text-decoration: none;
+   color:black;
+   letter-spacing: 1;
+}
+
+.gridViewItem span:hover {
+    font-weight: bold;
+}
+
+.gridViewItem:focus {
+    outline: none;
+}
+
+.gridViewItem img {
+    width: 90%;
+    transition: 0.2s;
+}
+
+.gridViewItem img:hover {
+    width: 100%;
+}
+
+.gridViewInfo {
+    text-align: center;
+    font-size: 15px;
+    padding: 5px 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 #bottomMusicPlayer {
         min-width: 620px;
         width: 100%;
         bottom: 0;
         position: fixed;
-        background-color: #e1e1e1;
+        background: rgb(35, 35, 35);
+        color: white;
 }
 
 #bottomMusicPlayerContainer {
@@ -27,10 +117,15 @@ html, body {
 }
 
 #musicPlayerLeft, #musicPlayerRight {
-    min-width: 180px;
+    min-width: 200px;
     width: 30%;
-    
 }
+
+#musicPlayerRight {
+    position: relative;
+    margin-top: 20px;
+}
+
 
 #musicPlayerMiddle {
     display: flex;
@@ -64,39 +159,555 @@ html, body {
     height: 20px;
     padding-left: 15px;
     padding-right: 15px;
+    filter: invert(100%);
+}
+
+.controlButtons img:hover {
+    width: 30px;
+    height: 30px;
+    transition: 0.3s;
+}
+
+.controlButtons.volume img:hover {
+    width: 20px;
+    height: 20px;
 }
 
 .controlButtons.play img,
 .controlButtons.pause img {
+    width: 25px;
+    height: 25px;
+}
+
+.controlButtons.play img:hover,
+.controlButtons.pause img:hover {
     width: 30px;
     height: 30px;
+    transition: 0.3s;
 }
 
 .playingBar {
-    display: flex;  
+    display: flex;
 }
 
 .progressTimer {
     font-size: 13px;
     text-align: center;
+    padding:0 12px 0 12px;
+    color: white;
 }
 .progressBar {
     display: inline-flex;
     height: 12px;
     width: 100%;
     cursor: pointer;
+    margin-top: 6.5px;
+    padding: 0px 5px 0px 5px;
 }
 
 .progressBackground {
-    background-color:#cfcfcf;
+    background-color:rgb(179, 179, 179);
     height: 4px;
     width: 100%;
     border-radius: 2px;
 }
 
 .progress {
-    background: -webkit-linear-gradient(left, #A64BCC, #F20041  100%);
-    height: 4px;
     width: 0;
     border-radius: 2px;
+    background: -webkit-linear-gradient(left, #A64BCC, #F20041  100%);
+    height: 4px;
+}
+
+#musicPlayerLeft .playerAlbumArt {
+    margin-right: 15px;
+    float: left;
+    background-size: cover;
+    width: 62px;
+    height: 62px;
+}
+
+#musicPlayerLeft .songInfo {
+display: table;
+color: white;
+}
+
+#musicPlayerLeft .songInfo .playerSongName {
+    font-weight: bold;
+    display: inline-block;
+    width: 100%;
+    margin: 7px 0;
+    font-size: 17px;
+    
+}
+
+#musicPlayerLeft .songInfo .playerSongName:hover, .playerSongArtist:hover, img:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#musicPlayerLeft .songInfo .playerSongName:focus, .playerSongArtist:focus, img:focus {
+    outline: none;
+}
+
+#musicPlayerRight .volumeBar {
+    position: absolute;
+    right: 0;
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+#musicPlayerRight .volumeBar img {
+    padding: 0;
+}
+
+#musicPlayerRight .volumeBar .progressBar {
+    width: 100px;
+    margin-top: 8.5px;
+}
+
+#topContainer {
+    width: 100%;
+    min-height: 100%;
+}
+
+#topContainer #navContainer {
+    width: 200px;
+    height:100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: -webkit-linear-gradient(-45deg, rgb(131, 40, 170), rgb(255, 0, 68)  90%);
+}
+
+.navBar {
+    padding: 20px;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center;
+    padding: 2.2px 0px 20px 0px;
+    text-decoration: none;
+    outline: none;
+}
+
+.logo:hover {
+    cursor: pointer;
+    animation: shake 1s;
+    animation-iteration-count: infinite; 
+}
+
+.navBar .groups {
+    border-top: 1px solid white;
+    padding: 10px 0;
+    cursor: pointer;
+    outline: none;
+}
+.navBar img {
+    width: 25px;
+    height: 25px;
+    padding: 0px 28px 0px 0px;
+    position: relative;
+    left: 5px;
+    filter: invert(100%);
+}
+
+.navBar img:hover {
+    opacity: 100%;
+}
+
+.navContent {
+    padding: 10px 0px 10px 0px;
+    font-size: 18px;
+    display: block;
+    letter-spacing: 1px;
+    display: inline-flex;
+    color: white;
+    outline: none;
+    text-decoration: none;
+    margin-top: 0.4px;
+    font-weight: bold;
+    outline: none;
+}
+
+.navContentLink {
+    width: 90px;
+}
+
+.navContent span{
+    outline: none;
+}
+
+.navContent:hover{
+    transform: scale(1.1); 
+    transition: all 0.2s ease-in-out;
+    outline: none;
+
+}
+
+
+/* Styling for Album Page */
+
+.entityInfo {
+    width: 100%;
+    display: inline-block;
+    background: -webkit-linear-gradient(-45deg, rgb(150, 47, 194), rgb(233, 54, 102)  90%);
+}
+
+.entityInfo .mainHeader {
+    margin: 0 auto 21px auto;
+    font-size: 30px;
+    letter-spacing: 1.5px;
+    color: white;
+}
+
+.entityInfo .middleSection {
+    text-align: center;
+    padding: 35px;
+}
+
+
+.mainButton button{
+    border: none;
+    margin: 0 auto;
+    border: 2px solid white;
+    font-family: 'IBM Plex Sans', sans-serif;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1em;
+    font-weight: bolder;
+    height: 42px;
+    min-width: 150px;
+    border-radius: 100px;
+    transition: 0.2s;
+}
+
+.borderBottom {
+    margin-bottom: 35px;
+}
+
+.mainButton button:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+
+.entityInfo .mainButton button:focus {
+    outline: none;
+}
+
+.entityInfo .leftSection {
+    width: 30%;
+    /*border: 1px solid rgba(255, 255, 255, 0.85);;*/
+    float: left;
+    max-width: 250px;
+}
+
+.entityInfo .leftSection img {
+    width: 80%;
+    padding: 35px;
+}
+
+.entityInfo .rightSection {
+    width: 70%;
+    float: left;
+    padding: 5px 40px 5px 40px;
+    box-sizing: border-box;
+    cursor: default;
+}
+
+.entityInfo .rightSection h2 {
+    margin-top: 28px;
+    margin-bottom: auto;
+    font-size: 30px;
+    letter-spacing: 1.5px;
+    color: white;
+}
+
+.entityInfo .rightSection p {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.songList {
+    padding: 0;
+    margin: 0 auto;
+}
+
+.songList .songListRow {
+    height: 47.5px;
+    padding: 15px 10px;
+    list-style: none;
+}
+
+.songList .songListRow .songName {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.songList .songListRow .songArtist {
+    font-size: 15px;
+}
+
+.songList .songListRow:hover {
+    background: -webkit-linear-gradient(-45deg, rgb(114, 34, 148), rgb(165, 35, 70) 97%);
+    color: white;
+    transition:0.1s;
+    border-top: none;
+}
+
+.songList .songListRow .songCount {
+    width: 8%;
+    float: left;
+}
+
+.songList .songListRow .songCount img {
+    width: 20px;
+    visibility: hidden;
+    position: absolute;
+    cursor: pointer;
+}
+
+.songList .songListRow:hover .songCount img {
+    filter: invert(100%);
+    visibility: visible;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.songList .songListRow:hover .songCount img:hover {
+    transform: scale(1.35);
+}
+
+
+
+.songList .songListRow:hover .songCount span {
+    visibility: hidden;
+}
+
+.songList .songListRow .songInfo {
+    width: 80%;
+    float: left;
+}
+
+.popularSong {
+    display: inline-flex;
+    float: left;
+    margin-right: 4px;
+    font-family: 'Montserrat', sans-serif;
+    background: -webkit-linear-gradient(-45deg, rgb(173, 69, 218), rgb(230, 64, 108) 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+}
+
+.songList .songListRow .songInfo span {
+    display: block;
+}
+
+.songList .songListRow .songOptions {
+    width: 50px;
+    display: block;
+    float: right;
+    text-align: right;
+}
+
+.songList .songListRow .songOptions img {
+    float: right;
+    width: 20px;
+    margin-top: -1px;
+    visibility: visible;
+    transition: 0.2s;
+}
+
+.songList .songListRow:hover .songOptions img {
+    visibility: visible;
+    filter:invert(100%);
+}
+
+.songList .songListRow:hover .songOptions img:hover {
+    transform: scale(1.35);
+}
+
+.gridViewContainer h2 {
+    text-align:center;
+    margin-top: 15px;
+}
+.entityInfo .searchContainer {
+    font-family: 'IBM Plex Sans', sans-serif;
+    text-align: center;
+}
+
+.entityInfo .searchContainer h4 {
+    padding: 32px 28px;
+    font-size: 2.0em;
+    margin: 0;
+    font-weight: bold;
+    color: white;
+}
+
+.entityInfo .searchContainer .searchBar{
+    height: 68px;
+    padding: 0px 28px;
+    font-size: 25px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border:none;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    color: white;
+}
+
+::placeholder {
+    color:rgba(255,255,255,0.3);
+}
+
+.entityInfo .searchContainer .searchBar:focus{
+    outline: none;
+}
+
+.entityInfo .searchContainer .searchBar:hover{
+    cursor: text;
+}
+
+.resultRow {
+    border-bottom: 1px solid transparent;;
+    border-top: 1px solid transparent;
+    padding: 15px 10px;
+    transition: 0.2s;
+    margin-left: 75px;
+}
+
+.artistContainer {
+    color: black;
+    width: 100%;
+    display: inline-block;
+}
+
+.artistContainer h2 {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.artistName .artistSearch {
+    letter-spacing: 1.5px;
+    margin-left: 60px;
+}
+
+.artistName .artistSearch:hover {
+    font-size: 25px;
+}
+
+.artistText {
+    font-size: 20px;
+    margin-left: 4px;
+    transition: 0.5s;
+}
+
+.artistText:hover {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.noResult {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.gridViewItem:hover{
+    font-weight: bold;
+}
+
+.playlistIcon img{
+    filter: invert(100%);
+    background: -webkit-linear-gradient(-45deg, #8DDD6B, rgb(15, 141, 107) 90%);
+}
+
+.deletePlaylist {
+    margin: 18px 0 0 0;
+}
+
+.optionsMenu{
+    position: fixed;
+    background: -webkit-linear-gradient(-45deg, rgba(150, 47, 194, 0.8), rgba(233, 54, 102, 0.8)  90%);
+    background-color: white;
+    box-shadow:inset 0px 0px 0px 1px white;
+    color: white;
+    z-index: 1000;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+     color: white;
+    display: none;
+}
+
+.optionsMenu .item {
+    padding:10px 12px;
+}
+
+.optionsMenu .item:hover {
+    cursor: pointer;
+    background: -webkit-linear-gradient(-45deg, rgb(114, 34, 148), rgb(165, 35, 70) 97%);
+    box-shadow:inset 0px 0px 0px 1px white;
+}
+select {
+    padding: none;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    border: none;
+    background-image:none;
+    background: none;
+    -webkit-appearance: none;
+}
+select:hover {
+    border-radius: 0px;
+    width: 100%;
+    cursor: pointer;
+    background: -webkit-linear-gradient(-45deg, rgb(114, 34, 148), rgb(165, 35, 70) 97%);
+    box-shadow:inset 0px 0px 0px 1px white;
+}
+.border-bottom {
+    border-bottom: 1px solid white;
+}
+
+.userDetails {
+    text-align: center;
+    padding: 5px 40px;
+    color: white;
+    background: -webkit-linear-gradient(-45deg, rgb(161, 43, 212), rgb(233, 54, 102)  90%);
+}
+
+.userDetails .container input[type="text"],
+.userDetails .container input[type="password"],
+.userDetails .container .button {
+    display: block;
+    margin: 10px auto;
+}
+
+.userDetails .container input[type="text"],
+.userDetails .container input[type="password"] {
+    font-family: 'IBM Plex Sans', sans-serif; 
+    height: 50px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid white;
+    font-size: 16px;
+    color: white;
+    padding: 0 20px;
 }
