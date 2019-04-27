@@ -1,0 +1,219 @@
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+button:focus {
+    outline:0;
+}
+
+#rg {
+    display: none;
+}
+
+#bg {
+    background-color: #ffffff;
+    background-image: url(../images/banner.png);
+    background-position: center;
+    background-size: cover;
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+#lgContainer * {
+    color: #000000;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: normal;
+    line-height: 2em;
+    box-sizing: border-box;
+}
+
+#lgContainer {
+    height: 100%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 80%;
+    margin: 0 auto;
+    max-width: 75%;
+}
+
+#input {
+    display: inline-block;
+    text-align: left;
+    width: 30%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 50px;
+    padding-right: 50px;
+    float: left;
+    /*border-left: 1px solid #000000;
+    border-right: 1px solid #000000;*/
+    background-color: rgba(255, 255, 255, 1);
+    height: 100%;
+    position: fixed;
+}
+
+#lg {
+    margin-top: 50%;
+}
+
+#rg {
+    position: relative;
+    margin:0 auto;
+    line-height: 1.4em;
+}
+
+#input input[type="text"],
+#input input[type="email"],
+#input input[type="password"] {
+    text-align: left;
+    display: table;
+    float: right;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid #000000;
+    height: 20px;
+    line-height: 5px;
+    width: 100%;
+}
+
+#input h2 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: normal;
+    font-size: 1.5em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+input:focus {
+    outline:none;
+}
+h2 {
+    margin: 10px;
+}
+
+::placeholder {
+    background: -webkit-linear-gradient(left, #A64BCC, #F20041 40%);
+    opacity: 1;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#input button {
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 1em;
+    font-weight: bolder;
+    margin: 20px auto;
+    height: 42px;
+    width: 100%;
+}
+
+#input button:hover {
+    cursor: pointer;
+    color: #ffffff;
+    transition: 0.2s;
+    background: -webkit-linear-gradient(left, #A64BCC, #F20041);
+    border: 1px solid #ffffff;
+    
+}
+
+#input button:focus {
+    outline:none;
+}
+
+.switchForm {
+    font-weight: bolder;
+    font-size:  0.85em;
+    text-align: center;
+}
+.switchForm:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    transition: 0.2s;
+
+}
+
+#bodyText {
+    height: 60%;
+    float: right;
+    max-width: 80%;
+    min-width: 59%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 50px;
+    padding-right: 50px;
+    display: table-cell;
+    background: rgb(0, 0, 0);
+    border-right: 1px solid #000000;
+    border-left: 1px solid #000000;
+}
+
+#bodyText * {
+    color: white;
+}
+
+#bodyText h1 {
+    font-family: 'Montserrat', sans-serif;
+    background: -webkit-linear-gradient(left, #A64BCC, #F20041  70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+#bodyText h2 {
+    font-size: 1.5em;
+    font-weight: bolder;
+    margin: 0 auto;
+}
+
+#bodyText ul {
+    padding: 0;
+}
+#bodyText li {
+    font-style: italic;
+    font-size: 1em;
+    list-style-type: none;
+    padding: 0em;
+    line-height: 45px;
+    text-indent: 25px;
+}
+
+#bodyImage {
+    background-image: url(../images/banner.png);
+    overflow: hidden;
+    background-size: cover;
+    height: 40%;
+    float: right;
+    max-width: 80%;
+    min-width: 59%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 50px;
+    padding-right: 50px;
+    display: table-cell;
+    transform: rotate(180deg);
+    border: 35px solid black;
+}
+
+#input .errorMessage {
+
+    font-size: 11px;
+    width: 100%;
+    font-weight: bold;
+    font-style: italic;
+    display: inline-block;
+    color: #F20041;
+}
+
+
+

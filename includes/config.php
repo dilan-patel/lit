@@ -4,7 +4,7 @@
     session_start(); //Enables use of sessions.
 
     $timezone = date_default_timezone_set("Europe/London"); //Timezone used for database.
-    $connection = mysqli_connect("localhost", "root", "", "lit"); //Server name, Username, Password, Database Name
+    $dbConnection = mysqli_connect("localhost", "root", "", "lit"); //Server name, Username, Password, Database Name
 
     if(mysqli_connect_errno()) {
         //Error message if there was an error in connecting to the database.
